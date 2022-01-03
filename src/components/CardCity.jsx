@@ -1,5 +1,4 @@
 export const CardCity = ({ city }) => {
-  console.log(city)
   return (
     <div className="w-80 shadow-md pb-10 cursor-pointer transition-all hover:scale-105">
       <figure className="flex h-60">

@@ -1,8 +1,11 @@
-export const Nav = () => {
+import { MobileSidebar } from './MobileSidebar'
+
+export const Nav = ({ sidebar }) => {
   return (
     <>
-      <a href="#">Sobre mí</a>
-      <a href="#">Contactame</a>
+      <div className='hidden lg:flex lg:gap-x-10 pr-10'>
+        <MobileSidebar/>
+      </div>
     </>
   )
 }
