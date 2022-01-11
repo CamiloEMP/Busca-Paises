@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { API_URL } from '../api/config'
 import { CardCity } from './CardCity'
-import { Spinners } from './Spinners'
+import { Spinner } from './Spinner'
 
 export const CardListCities = () => {
   const [cities, setCities] = useState([])
@@ -15,12 +15,11 @@ export const CardListCities = () => {
         setLoader(false)
       })
   }, [])
-
   return (
     <>
       {loader
-        ? <Spinners/>
-        : <section className='container mx-auto justify-center flex flex-wrap gap-20'>
+        ? <Spinner/>
+        : <section className='container mx-auto justify-center flex flex-wrap gap-20 dark:text-white'>
           {cities.map(city => (
             <CardCity key={city.numericCode} city={city}/>
           ))}

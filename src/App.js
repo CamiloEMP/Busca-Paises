@@ -1,19 +1,23 @@
-import { CardListCities } from './components/CardListCities'
-import { FilterCities } from './components/FilterCities'
+import { ThemeProvider } from './Theme/ThemeContext'
+import { Layout } from './container/Layout'
 import { Header } from './components/Header'
-import { Search } from './components/Search'
 import { SearchCountries } from './container/SearchCountries'
+import { Search } from './components/Search'
+import { FilterCities } from './components/FilterCities'
+import { CardListCities } from './components/CardListCities'
 
 function App () {
   return (
-    <>
-      <Header/>
-      <SearchCountries>
-        <Search/>
-        <FilterCities/>
-      </SearchCountries>
-      <CardListCities/>
-    </>
+    <ThemeProvider>
+      <Layout>
+        <Header/>
+        <SearchCountries>
+          <Search/>
+          <FilterCities/>
+        </SearchCountries>
+        <CardListCities/>
+      </Layout>
+    </ThemeProvider>
   )
 }
 
