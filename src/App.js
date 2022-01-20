@@ -1,21 +1,21 @@
-import { ThemeProvider } from './Theme/ThemeContext'
+import { Route, Routes } from 'react-router-dom'
 import { Layout } from './container/Layout'
 import { Header } from './components/Header'
-import { SearchCountries } from './container/SearchCountries'
-import { Search } from './components/Search'
-import { FilterCities } from './components/FilterCities'
-import { CardListCities } from './components/CardListCities'
+import { Home } from './pages/Home'
+import { City } from './pages/City'
+import { NotFound } from './pages/404'
+import { ThemeProvider } from './Theme/ThemeContext'
 
 function App () {
   return (
     <ThemeProvider>
       <Layout>
         <Header/>
-        <SearchCountries>
-          <Search/>
-          <FilterCities/>
-        </SearchCountries>
-        <CardListCities/>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/city/:code' element={<City/>} />
+          <Route path='*' element={<NotFound/>} />
+        </Routes>
       </Layout>
     </ThemeProvider>
   )

@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 export const CardCity = ({ city }) => {
   return (
-    <div className="w-80 shadow-md pb-10 cursor-pointer transition-all hover:scale-105 ">
+    <Link to={`city/${city.alpha3Code}`} className="w-80 shadow-md  dark:shadow-white/10 pb-10 cursor-pointer transition-all hover:scale-105 ">
       <figure className="flex h-60 items-start">
         <img className="h-52" src={city.flags.png} alt={`bandera de ${city.name}`} />
       </figure>
@@ -10,6 +12,6 @@ export const CardCity = ({ city }) => {
         <p>Región: {city.region}</p>
         <p>Población: {city.population}</p>
       </div>
-    </div>
+    </Link>
   )
 }
