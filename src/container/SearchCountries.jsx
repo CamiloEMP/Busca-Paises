@@ -1,6 +1,6 @@
 export const SearchCountries = ({ children }) => {
   return (
-    <section className="flex mx-auto flex-wrap items-center justify-between h-24 mt-4 mb-4 w-4/6">
+    <section className="grid grid-rows-2 gap-5 w-3/4 mx-auto place-items-center my-8 sm:grid-cols-2 sm:grid-rows-1 sm:w-5/6">
       {children}
     </section>
   )

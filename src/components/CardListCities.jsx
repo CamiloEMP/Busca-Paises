@@ -1,29 +1,32 @@
 import { useState, useEffect } from 'react'
-import { API_URL } from '../api/config'
+
+import { ContainerCities } from '../container/ContainerCities'
 import { CardCity } from './CardCity'
 import { Spinner } from './Spinner'
 
-export const CardListCities = () => {
-  const [cities, setCities] = useState([])
+import { API_URL } from '../api/config'
+
+export const CardListCities = ({ countCities, initialCities, setCities }) => {
   const [loader, setLoader] = useState(false)
   useEffect(() => {
     setLoader(true)
-    fetch(`${API_URL}all`)
+    fetch(`${API_URL}/all`)
       .then(res => res.json())
       .then(data => {
-        setCities(data.slice(0, 20))
         setLoader(false)
+        setCities(data)
       })
+      .catch(err => console.log(err))
   }, [])
   return (
     <>
       {loader
         ? <Spinner/>
-        : <section className='container mx-auto justify-center flex flex-wrap gap-20 dark:text-white'>
-          {cities.map(city => (
+        : <ContainerCities>
+          {initialCities.slice(countCities.start, countCities.final).map(city => (
             <CardCity key={city.numericCode} city={city}/>
           ))}
-        </section>
+        </ContainerCities>
       }
     </>
   )
